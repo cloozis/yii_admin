@@ -15,14 +15,14 @@
 	<?php echo $form->errorSummary($model); ?>
 
 		<div class="row form-group">
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model, 'email', array('maxlength' => 255, 'class' => 'form-control')); ?>
+		<?php echo $form->error($model,'email'); ?>
+		</div><!-- row -->
+		<div class="row form-group">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model, 'name', array('maxlength' => 255, 'class' => 'form-control')); ?>
 		<?php echo $form->error($model,'name'); ?>
-		</div><!-- row -->
-		<div class="row form-group">
-		<?php echo $form->labelEx($model,'username'); ?>
-		<?php echo $form->textField($model, 'username', array('maxlength' => 255, 'class' => 'form-control')); ?>
-		<?php echo $form->error($model,'username'); ?>
 		</div><!-- row -->
 		<div class="row form-group">
 		<?php echo $form->labelEx($model,'password'); ?>
@@ -33,11 +33,6 @@
 		<?php echo $form->labelEx($model,'avatar'); ?>
 		<?php echo $form->textField($model, 'avatar', array('maxlength' => 255, 'class' => 'form-control')); ?>
 		<?php echo $form->error($model,'avatar'); ?>
-		</div><!-- row -->
-		<div class="row form-group">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model, 'email', array('maxlength' => 255, 'class' => 'form-control')); ?>
-		<?php echo $form->error($model,'email'); ?>
 		</div><!-- row -->
 		<div class="row form-group">
 		<?php echo $form->labelEx($model,'phone'); ?>
@@ -68,6 +63,11 @@
 		<?php echo $form->labelEx($model,'dateChange'); ?>
 		<?php echo $form->textField($model, 'dateChange', array('class' => 'form-control')); ?>
 		<?php echo $form->error($model,'dateChange'); ?>
+		</div><!-- row -->
+		<div class="row form-group">
+		<?php echo $form->labelEx($model,'dateLastLogin'); ?>
+		<?php echo $form->textField($model, 'dateLastLogin', array('class' => 'form-control')); ?>
+		<?php echo $form->error($model,'dateLastLogin'); ?>
 		</div><!-- row -->
 
 

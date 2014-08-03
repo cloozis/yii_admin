@@ -46,7 +46,7 @@ public function accessRules() {
 				if (Yii::app()->getRequest()->getIsAjaxRequest())
 					Yii::app()->end();
 				else
-					$this->redirect(array('view', 'id' => $model->email));
+					$this->redirect(array('view', 'id' => $model->id));
 			}
 		}
 
@@ -62,7 +62,7 @@ public function accessRules() {
 			$model->setAttributes($_POST['Users']);
 
 			if ($model->save()) {
-				$this->redirect(array('view', 'id' => $model->email));
+				$this->redirect(array('view', 'id' => $model->id));
 			}
 		}
 

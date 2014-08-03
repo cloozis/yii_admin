@@ -45,18 +45,18 @@ $('.search-form form').submit(function(){
 	'filter' => $model,
 	'columns' => array(
 		'id',
+		'email',
 		'name',
-		'username',
 		'password',
 		'avatar',
-		'email',
-		/*
 		'phone',
+		/*
 		'role',
 		'is_active',
 		'rememberMe',
 		'dateCreate',
 		'dateChange',
+		'dateLastLogin',
 		*/
 		array(
 			'class' => 'CButtonColumn',

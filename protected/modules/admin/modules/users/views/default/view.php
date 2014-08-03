@@ -20,17 +20,17 @@ $this->menu=array(
 	'data' => $model,
 	'attributes' => array(
 'id',
+'email',
 'name',
-'username',
 'password',
 'avatar',
-'email',
 'phone',
 'role',
 'is_active',
 'rememberMe',
 'dateCreate',
 'dateChange',
+'dateLastLogin',
 	),
 )); ?>
 
