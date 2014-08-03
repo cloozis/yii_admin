@@ -9,21 +9,32 @@ return array(
 	// preloading 'log' component
 	'preload'=>array('log'),
 
+	// autoloading model and component classes
+	'import' => array(
+		'application.models.*',
+		'application.components.*',
+		'ext.giix-components.*',
+	),
+
 	// application components
 	'components'=>array(
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
+		'authManager' => array(
+			'class' => 'CDbAuthManager',
+			'connectionID' => 'db',
 		),
-		// uncomment the following to use a MySQL database
-		/*
-		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+
+		'db' => array(
+			'connectionString' => 'mysql:host=localhost;dbname=yii_admin',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'toor',
 			'charset' => 'utf8',
+
+			/*'itemTable' => 'AuthItem',
+			'itemChildTable' => 'AuthItemChild',
+			'assignmentTable' => 'AuthAssignment',*/
 		),
-		*/
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(

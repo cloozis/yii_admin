@@ -7,7 +7,9 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Yii Admin',
+	'sourceLanguage' => 'en',
+	'language' => 'ru',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -16,50 +18,69 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'ext.giix-components.*',
 	),
 
 	'modules'=>array(
 		// uncomment the following to enable the Gii tool
-		/*
+
+		'admin' => array(
+			'modules' => array(
+				'users'
+			),
+		),
+
+		// path /gii/default/index
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'Enter Your Password Here',
+			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
+
+			'generatorPaths' => array(
+				'ext.giix-core', // giix generators
+			),
 		),
-		*/
+
 	),
 
 	// application components
 	'components'=>array(
-		'user'=>array(
+		'user' => array(
 			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
+			'allowAutoLogin' => true,
+			'loginUrl' => array('login'),
+			'class' => 'WebUser',
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
-		'urlManager'=>array(
-			'urlFormat'=>'path',
-			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
-				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+
+		'urlManager' => array(
+			'urlFormat' => 'path',
+			'showScriptName' => false,
+			'rules' => array(
+				'<controller:\w+>/<url:(\w|-)+>' => '<controller>/default/view',
+				'<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+				'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+
+				'login' => 'site/login',
+				'logout' => 'site/logout',
 			),
 		),
-		*/
-		'db'=>array(
-			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
-		),
+
 		// uncomment the following to use a MySQL database
-		/*
+
+		'authManager' => array(
+			'class' => 'PhpAuthManager',
+			'defaultRoles' => array('guest'),
+		),
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=testdrive',
+			'connectionString' => 'mysql:host=localhost;dbname=yii_admin',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => 'toor',
 			'charset' => 'utf8',
 		),
-		*/
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
 			'errorAction'=>'site/error',
@@ -83,8 +104,11 @@ return array(
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
-	'params'=>array(
+	'params' => array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'adminEmail' => 'csscode.ru@ya.ru',
+		'404' => 'Страницы не существует',
+		'uploadPath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '../../upload/',
+		'htmlPath' => '/upload/',
 	),
 );

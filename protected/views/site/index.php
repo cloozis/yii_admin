@@ -18,3 +18,9 @@ $this->pageTitle=Yii::app()->name;
 the <a href="http://www.yiiframework.com/doc/">documentation</a>.
 Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
 should you have any questions.</p>
+<? var_dump(Yii::app()->user->id) ?>
+<? var_dump(Yii::app()->user->name) ?>
+<? var_dump(Yii::app()->user->role) ?>
+<? var_dump(isset(Yii::app()->user->username) ? Yii::app()->user->username : false) ?>
+<? var_dump(isset(Yii::app()->user->email) ? Yii::app()->user->email : false) ?>
+<? if(Yii::app()->user->isGuest) echo 'Гость' ?>
