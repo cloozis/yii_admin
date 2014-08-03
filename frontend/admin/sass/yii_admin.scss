@@ -1,0 +1,51 @@
+$error:red;
+
+// Size
+$baseWidth:980px;
+$minWidth:300px;
+$paddingPage:0 10px;
+$paddingPageMobile:0 5px;
+
+// Animation
+$anim-global:.5s;
+
+// Size universal columns
+$colCenter:0 20% 0 20%;
+$colLeft:20%;
+$colRight:20%;
+$rowMargin:0 0 15px;
+
+// loader
+$loaderOffset:0;
+// размер отступа затемнения у loader
+$loaderRadius:4px;
+$loaderBg:rgba(0, 0, 0, .4);
+
+
+@import "mixins";
+@import "metaClasses";
+@import "plugins";
+
+
+#yii_admin{
+	padding-top:51px;
+}
+.form{
+	padding-bottom:20px
+}
+
+.grid-view table.items td, .grid-view table.table td{
+	max-width:200px;
+	@include text-overflow;
+}
+
+span.required, .errorMessage{
+	color:red;
+}
+.form-control.error{
+	border:1px solid red;
+}
+
+.list-view{
+	padding-top:20px
+}

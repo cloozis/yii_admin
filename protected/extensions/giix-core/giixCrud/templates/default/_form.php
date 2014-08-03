@@ -12,7 +12,7 @@
 $form = $this->beginWidget('GxActiveForm', array(
 	'id' => '<?php echo $this->class2id($this->modelClass); ?>-form',
 	'enableAjaxValidation' => <?php echo $ajax; ?>,
-	'htmlOptions' => array('enctype' => 'multipart/form-data'),
+	'htmlOptions' => array('enctype' => 'multipart/form-data', 'class' => 'roboForm'),
 ));
 <?php echo '?>'; ?>
 
@@ -25,11 +25,11 @@ $form = $this->beginWidget('GxActiveForm', array(
 
 <?php foreach ($this->tableSchema->columns as $column): ?>
 <?php if (!$column->autoIncrement): ?>
-		<div class="row form-group">
+		<div class="form-group">
 		<?php echo "<?php echo " . $this->generateActiveLabel($this->modelClass, $column) . "; ?>\n"; ?>
 		<?php echo "<?php " . $this->generateActiveField($this->modelClass, $column) . "; ?>\n"; ?>
 		<?php echo "<?php echo \$form->error(\$model,'{$column->name}'); ?>\n"; ?>
-		</div><!-- row -->
+		</div>
 <?php endif; ?>
 <?php endforeach; ?>
 

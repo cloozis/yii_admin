@@ -1,0 +1,273 @@
+/** Здесь собраны примеси которые удобны для меня, вы же можете использовать Компас **/
+
+@mixin gradient($start:#ccc, $stop:#999) {
+	background:$start;
+	background:-moz-linear-gradient(top, $start 0%, $stop 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, $start), color-stop(100%, $stop));
+	background:-webkit-linear-gradient(top, $start 0%, $stop 100%);
+	background:-o-linear-gradient(top, $start 0%, $stop 100%);
+	background:-ms-linear-gradient(top, $start 0%, $stop 100%);
+	background:linear-gradient(to bottom, $start 0%, $stop 100%);
+	-pie-background:linear-gradient($start, $stop);
+}
+
+@mixin h-gradient($left:#ccc, $right:#999) {
+	background:$left;
+	background:-moz-linear-gradient(left, $left 0%, $right 100%);
+	background:-webkit-gradient(linear, left top, right top, color-stop(0%, $left), color-stop(100%, $right));
+	background:-webkit-linear-gradient(left, $left 0%, $right 100%);
+	background:-o-linear-gradient(left, $left 0%, $right 100%);
+	background:-ms-linear-gradient(left, $left 0%, $right 100%);
+	background:linear-gradient(to right, $left 0%, $right 100%);
+	-pie-background:linear-gradient(to right, $left 0%, $right 100%);
+}
+
+@mixin gradient50($top1:#ccc, $top2:#ccc, $bottom1:#ddd, $bottom2:#ddd) {
+	background:$top1; /* Old browsers */
+	background:-moz-linear-gradient(top, $top1 0%, $top2 50%, $bottom1 51%, $bottom2 100%);
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0%, $top1), color-stop(50%, $top2), color-stop(51%, $bottom1), color-stop(100%, $bottom2));
+	background:-webkit-linear-gradient(top, $top1 0%, $top2 50%, $bottom1 51%, $bottom2 100%);
+	background:-o-linear-gradient(top, $top1 0%, $top2 50%, $bottom1 51%, $bottom2 100%);
+	background:-ms-linear-gradient(top, $top1 0%, $top2 50%, $bottom1 51%, $bottom2 100%);
+	background:linear-gradient(to bottom, $top1 0%, $top2 50%, $bottom1 51%, $bottom2 100%);
+	-pie-background:linear-gradient(to bottom, $top1 0%, $top2 50%, $bottom1 51%, $bottom2 100%);
+}
+
+@mixin h-gradient50($left1:#ccc, $left2:#ccc, $right1:#ddd, $right2:#ddd) {
+	background:$left1; /* Old browsers */
+	background:-moz-linear-gradient(left, $left1 0%, $left2 50%, $right1 51%, $right2 100%);
+	background:-webkit-gradient(linear, left top, right top, color-stop(0%, $left1), color-stop(50%, $left2), color-stop(51%, $right1), color-stop(100%, $right2));
+	background:-webkit-linear-gradient(left, $left1 0%, $left2 50%, $right1 51%, $right2 100%);
+	background:-o-linear-gradient(left, $left1 0%, $left2 50%, $right1 51%, $right2 100%);
+	background:-ms-linear-gradient(left, $left1 0%, $left2 50%, $right1 51%, $right2 100%);
+	background:linear-gradient(to right, $left1 0%, $left2 50%, $right1 51%, $right2 100%);
+	-pie-background:linear-gradient(to right, $left1 0%, $left2 50%, $right1 51%, $right2 100%);
+}
+
+@mixin opacity($x:50) {
+	opacity:$x;
+	filter:alpha(opacity=$x / 100);
+}
+
+@mixin transform($arguments...) {
+	-webkit-transform:$arguments;
+	-moz-transform:$arguments;
+	-o-transform:$arguments;
+	-ms-transform:$arguments;
+	transform:$arguments;
+}
+
+@mixin rotation($deg:5deg) {
+	@include transform(rotate($deg));
+}
+
+@mixin scale($x:1, $y:1) {
+	@include transform(scale($x, $y));
+}
+
+@mixin translate($x:0, $y:0) {
+	@include transform(translate($x, $y));
+}
+
+@mixin transition($arguments...) {
+	-webkit-transition:$arguments;
+	-moz-transition:$arguments;
+	-o-transition:$arguments;
+	transition:$arguments;
+}
+
+@mixin box-sizing($sizing:border-box) {
+	-ms-box-sizing:$sizing;
+	-moz-box-sizing:$sizing;
+	-webkit-box-sizing:$sizing;
+	box-sizing:$sizing;
+}
+
+@mixin user-select($argument:none) {
+	-webkit-user-select:$argument;
+	-moz-user-select:$argument;
+	-ms-user-select:$argument;
+	user-select:$argument;
+}
+
+@mixin selection($color:#fff, $bg:#3399ff) {
+	::selection{
+		color:$color;
+		background:$bg;
+	}
+	::-moz-selection{
+		color:$color;
+		background:$bg;
+	}
+	::-webkit-selection{
+		color:$color;
+		background:$bg;
+	}
+	::-o-selection{
+		color:$color;
+		background:$bg;
+	}
+	::-ms-selection{
+		color:$color;
+		background:$bg;
+	}
+}
+
+@mixin background-clip($argument:padding-box) {
+	-moz-background-clip:$argument;
+	-webkit-background-clip:$argument;
+	background-clip:$argument;
+}
+
+@mixin size($width:auto, $height:auto) {
+	width:$width;
+	height:$height;
+}
+
+@mixin max-size($width:none, $height:none) {
+	max-width:$width;
+	max-height:$height;
+}
+
+@mixin min-size($width:0, $height:0) {
+	min-width:$width;
+	min-height:$height;
+}
+
+@mixin square($size:100px) {
+	@include size($size, $size);
+}
+
+@mixin center-block($width:auto) {
+	width:$width;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+@mixin text-overflow{
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
+
+@mixin clearfix{
+	&:after{
+		content:".";
+		display:block;
+		height:0;
+		clear:both;
+		visibility:hidden;
+	}
+}
+
+@mixin placeholder($color:$placeholder, $focus:transparent) {
+	&::-webkit-input-placeholder{
+		color:$placeholder;
+	}
+	&:-ms-input-placeholder{
+		color:$placeholder;
+	}
+	&:-moz-placeholder{
+		color:$placeholder;
+	}
+	&::-moz-placeholder{ /* Mozilla Firefox 19+ */
+		color:$placeholder;
+	}
+	&.placeholder{
+		color:$placeholder;
+	}
+	&:focus:-moz-placeholder{
+		color:$focus !important;
+	}
+	&:focus::-moz-placeholder{ /* Mozilla Firefox 19+ */
+		color:$focus !important;
+	}
+	&:focus:-ms-input-placeholder{
+		color:$focus !important;
+	}
+	&:focus::-webkit-input-placeholder{
+		color:$focus !important;
+	}
+	&.placeholder:focus{
+		color:$focus !important;
+	}
+}
+
+@mixin palt($left:0, $top:0) {
+	position:absolute;
+	left:$left;
+	top:$top;
+}
+
+@mixin part($right:0, $top:0) {
+	position:absolute;
+	right:$right;
+	top:$top;
+}
+
+@mixin palb($left:0, $bottom:0) {
+	position:absolute;
+	left:$left;
+	bottom:$bottom;
+}
+
+@mixin parb($right:0, $bottom:0) {
+	position:absolute;
+	right:$right;
+	bottom:$bottom;
+}
+
+@mixin prlt($left:0, $top:0) {
+	position:relative;
+	left:$left;
+	top:$top;
+}
+
+@mixin prrt($right:0, $top:0) {
+	position:relative;
+	right:$right;
+	top:$top;
+}
+
+@mixin prlb($left:0, $bottom:0) {
+	position:relative;
+	left:$left;
+	bottom:$bottom;
+}
+
+@mixin prrb($right:0, $bottom:0) {
+	position:relative;
+	right:$right;
+	bottom:$bottom;
+}
+
+@mixin cell($width:100px, $height:100px) {
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+	@include size($width, $height);
+}
+
+@mixin icon($name:'csscode', $x:0, $y:0, $xname:'left', $yname:'top', $place:':after') {
+	&#{$place}{
+		position:absolute;
+		#{$xname}:$x;
+		#{$yname}:$y;
+		content:'';
+		background:sprite($icons, $prefixImage#{$name});
+		@include size(image-width("#{$iconDir}/#{$prefixImage}#{$name}.png"), image-height("#{$iconDir}/#{$prefixImage}#{$name}.png"));
+	}
+}
+
+@mixin text-column($length:2, $gap:40px, $rule:none) {
+	column-count:$length;
+	-moz-column-count:$length;
+	-webkit-column-count:$length;
+	column-gap:$gap;
+	-moz-column-gap:$gap;
+	-webkit-column-gap:$gap;
+	column-rule:$rule;
+	-moz-column-rule:$rule;
+	-webkit-column-rule:$rule;
+}

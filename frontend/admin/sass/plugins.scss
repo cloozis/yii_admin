@@ -1,0 +1,59 @@
+/**
+ * Уведомитель
+ */
+.miniNoty{
+	position:fixed;
+	right:10px; bottom:-10px;
+	bottom:10px\9;
+	padding:10px 15px;
+	border-radius:5px;
+	color:#fff;
+	cursor:pointer;
+	max-width:300px;
+	min-width:150px;
+	opacity:0;
+	z-index:101;
+
+	@include scale(1, 0);
+	@include transition(all $anim-global);
+
+	&-show{
+		bottom:10px;
+		opacity:1;
+		@include scale(1, 1);
+	}
+	&-success{
+		background:mediumseagreen;
+		box-shadow:0 2px 5px mediumseagreen;
+	}
+	&-error{
+		background:indianred;
+		box-shadow:0 2px 5px indianred;
+	}
+	&-normal{
+		background:lightgrey;
+		box-shadow:0 2px 5px lightgrey;
+		color:#000;
+	}
+	&-warning{
+		background:goldenrod;
+		box-shadow:0 2px 5px goldenrod;
+	}
+}
+
+
+/**
+ * Валидатор форм
+ */
+.roboForm{ }
+input.roboForm_error{
+	color:red;
+	border:1px solid red;
+}
+div.roboForm_error{
+	color:red;
+	display:none;
+}
+div.roboForm_show{
+	display:block;
+}

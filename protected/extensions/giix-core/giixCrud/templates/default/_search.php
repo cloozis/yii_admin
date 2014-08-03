@@ -17,13 +17,13 @@
 	if (strpos($field, 'password') !== false)
 		continue;
 ?>
-	<div class="row form-group">
+	<div class="form-group">
 		<?php echo "<?php echo \$form->label(\$model, '{$column->name}'); ?>\n"; ?>
 		<?php echo "<?php " . $this->generateSearchField($this->modelClass, $column)."; ?>\n"; ?>
 	</div>
 
 <?php endforeach; ?>
-	<div class="row buttons">
+	<div class="buttons">
 		<?php echo "<?php echo GxHtml::submitButton(Yii::t('app', 'Search'), array('class' => 'btn btn-default')); ?>\n"; ?>
 	</div>
 

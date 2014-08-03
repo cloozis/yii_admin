@@ -97,7 +97,7 @@ class GiixCrudCode extends CrudCode {
 				),
 			));\n";
 		} else if (stripos($column->dbType, 'text') !== false) { // Start of CrudCode::generateActiveField code.
-			return "echo \$form->textArea(\$model, '{$column->name}', array('class' => 'form-control'))";
+			return "echo \$form->textArea(\$model, '{$column->name}', array('class' => 'form-control roboForm_field'))";
 		} else {
 			$passwordI18n = Yii::t('app', 'password');
 			$passwordI18n = (isset($passwordI18n) && $passwordI18n !== '') ? '|' . $passwordI18n : '';
@@ -108,9 +108,9 @@ class GiixCrudCode extends CrudCode {
 				$inputField='textField';
 
 			if ($column->type !== 'string' || $column->size === null)
-				return "echo \$form->{$inputField}(\$model, '{$column->name}', array('class' => 'form-control'))";
+				return "echo \$form->{$inputField}(\$model, '{$column->name}', array('class' => 'form-control roboForm_field'))";
 			else
-				return "echo \$form->{$inputField}(\$model, '{$column->name}', array('maxlength' => {$column->size}, 'class' => 'form-control'))";
+				return "echo \$form->{$inputField}(\$model, '{$column->name}', array('maxlength' => {$column->size}, 'class' => 'form-control roboForm_field'))";
 		} // End of CrudCode::generateActiveField code.
 	}
 

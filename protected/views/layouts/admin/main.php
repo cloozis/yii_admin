@@ -4,13 +4,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="ru">
 
-	<!-- blueprint CSS framework -->
-	<?/* Yii::app()->clientScript->registerCssFile('/frontend/admin/css/screen.css', 'screen, projection'); */?><!--
-	<?/* Yii::app()->clientScript->registerCssFile('/frontend/admin/css/print.css', 'print'); */?>
-
-	<?/* Yii::app()->clientScript->registerCssFile('/frontend/admin/css/main.css'); */?>
-	--><?/* Yii::app()->clientScript->registerCssFile('/frontend/admin/css/form.css'); */?>
-
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
 	<? Yii::app()->clientScript->registerCssFile('/frontend/admin/bootstrap/css/bootstrap.min.css'); ?>
@@ -18,8 +11,11 @@
 
 	<? Yii::app()->clientScript->registerCssFile('/frontend/admin/css/yii_admin.css'); ?>
 
-	<? Yii::app()->clientScript->registerScriptFile('/frontend/admin/js/jquery-1.x.x.min.js'); ?>
+	<? Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+	<? Yii::app()->clientScript->registerScriptFile('/frontend/admin/js/selectivizr-min.js'); ?>
+	<? Yii::app()->clientScript->registerScriptFile('/frontend/admin/js/library.js'); ?>
 	<? Yii::app()->clientScript->registerScriptFile('/frontend/admin/bootstrap/js/bootstrap.min.js'); ?>
+	<? Yii::app()->clientScript->registerScriptFile('/frontend/admin/js/admin.js'); ?>
 </head>
 
 <body>
@@ -59,6 +55,22 @@
 								<li><a href="#">Separated link</a></li>
 								<li><a href="#">One more separated link</a></li>
 							</ul>
+
+						</li>
+
+						<li class="dropdown">
+
+							<? if(!empty($this->menu)): ?>
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+								Операции
+								<b class="caret"></b>
+							</a>
+							<?php
+							$this->widget('zii.widgets.CMenu', array(
+								'items' => $this->menu,
+								'htmlOptions' => array('class' => 'dropdown-menu'),
+							));
+							endif?>
 
 						</li>
 					</ul>

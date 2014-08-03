@@ -33,7 +33,7 @@ $('.search-form form').submit(function(){
 </p>
 
 <?php echo GxHtml::link(Yii::t('app', 'Advanced Search'), '#', array('class' => 'search-button')); ?>
-<div class="search-form">
+<div class="search-form" style="display:none">
 <?php $this->renderPartial('_search', array(
 	'model' => $model,
 )); ?>
@@ -41,6 +41,8 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id' => 'users-grid',
+	'htmlOptions' => array('class' => 'grid-view table-responsive'),
+	'itemsCssClass' => 'table table-hover',
 	'dataProvider' => $model->search(),
 	'filter' => $model,
 	'columns' => array(
